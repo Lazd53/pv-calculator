@@ -18,7 +18,7 @@ class MountingType extends React.Component{
         <form className="request-section-form">
           <InputComponent
             label="Mounting Type:"
-            storeName="mountingType"
+            storeName="mounting_type"
             type="select"
             options={mountingType}
           />

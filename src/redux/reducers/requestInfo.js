@@ -1,14 +1,14 @@
 import {RESET_PANEL_REQUEST_VALUES, CHANGE_PANEL_VALUE} from '../actions/requestActions';
 
 const requestSetupValues = {
-  systemCapacity: 1,
-  moduleType: 1,
-  arrayType: 1,
-  systemLosses: 14,
+  system_capacity: 1,
+  module_type: 1,
+  array_type: 1,
+  losses: 14,
   azimuth: 0,
   tilt: 30,
-  latitude: 0,
-  longitude: 0
+  lat: 38,
+  lon: -122
 }
 
 function panelRequestInfo(state=requestSetupValues, action){

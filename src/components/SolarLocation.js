@@ -13,7 +13,7 @@ class SolarLocation extends React.Component{
           <InputComponent
             label="Latitude:"
             type="number"
-            storeName="latitude"
+            storeName="lat"
             required={true}
             min={-90}
             max={90}
@@ -21,7 +21,7 @@ class SolarLocation extends React.Component{
           <InputComponent
             label="Longitude:"
             type="number"
-            storeName="longitude"
+            storeName="lon"
             required={true}
             min={-180}
             max={180}

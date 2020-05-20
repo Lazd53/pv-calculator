@@ -15,21 +15,21 @@ class SystemInfo extends React.Component{
         <form className="request-section-form">
           <InputComponent
             label="System Capacity:"
-            storeName="systemCapacity"
+            storeName="system_capacity"
             type="number"
             min={0.05}
             max={500000}
           />
           <InputComponent
             label="Panel Type:"
-            storeName="moduleType"
+            storeName="module_type"
             type="select"
             options={panelType}
           />
           <InputComponent
-            type="number"
-            storeName="systemLosses"
             label="System Losses:"
+            type="number"
+            storeName="losses"
             min={-5}
             max={99}
           />
