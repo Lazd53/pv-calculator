@@ -5,13 +5,24 @@
   border-radius: 10px;
 }
 
+h1 {
+  color: #1261A0;
+}
+
 .request-section{
   position: relative;
 }
 
 .request-section-header{
-  background-color: black;
+  background-color: #1261A0;
   color: white;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 80px;
+  margin-bottom: 20px;
+  font-size: 20px;
+
 }
 
 .request-section-form{
@@ -20,9 +31,30 @@
   margin: 0 15px 40px 15px;
 }
 
+.input-component{
+  font-size: 20px;
+}
+
+.input-component-title{
+  margin: 15px 0;
+}
+
 .input-component input, .input-component select, .input-component option{
-  width: 145px;
-  height: 22px;
+  min-width: 140px;
+  height: 36px;
   padding: 1px;
   box-sizing: border-box;
+  font-size: 18px;
+  text-align-last: center;
+}
+
+.input-component input,:focus .input-component select:focus,
+.input-component input:active, .input-component select:focus{
+  outline: none;
+  border-color: #1261A0;
+}
+
+.input-component input, .input-component select{
+  border: 2px solid darkgrey;
+  border-radius: 10px;
 }

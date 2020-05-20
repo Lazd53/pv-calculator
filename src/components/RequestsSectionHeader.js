@@ -3,9 +3,9 @@ import React from 'react';
 
 const RequestsSectionHeader = ({title}) =>{
   return(
-      <h3 className="request-section-header">
-        {title}
-      </h3>
+      <div className="request-section-header">
+        <h3>{title}</h3>
+      </div>
   )
 }
 

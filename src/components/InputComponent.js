@@ -53,7 +53,8 @@ class InputComponent extends React.Component{
     const { label } = this.props;
     return(
       <div className="input-component">
-        <label> {label} <br/>
+        <label>
+          <h4 className="input-component-title">{label}</h4>
           {this.createInputByType()}
         </label>
       </div>
