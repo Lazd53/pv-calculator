@@ -13,13 +13,15 @@ class Location extends React.Component{
           <InputComponent
             label="Latitude:"
             type="number"
+            storeName="latitude"
             required={true}
             min={-90}
             max={90}
           />
           <InputComponent
-            type="number"
             label="Longitude:"
+            type="number"
+            storeName="longitude"
             required={true}
             min={-180}
             max={180}

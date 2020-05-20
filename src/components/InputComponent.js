@@ -1,19 +1,44 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { changePanelValue } from '../redux/actions/requestActions';
 
 class InputComponent extends React.Component{
 
+  handleNumberInput = (event) => {
+    const {changePanelValue, min, max, storeName} = this.props;
+    const value = event.target.value;
+     if (value > max){
+       changePanelValue(storeName, max);
+     } else if ( value < min){
+       changePanelValue(storeName, min);
+     } else {
+       changePanelValue(storeName, value)
+     }
+  }
+
+  handleSelectInput = (event) => {
+    const {changePanelValue, storeName} = this.props;
+    changePanelValue(storeName, event.target.value)
+  }
+
   createInputByType = () => {
-    switch(this.props.type){
+    const {type, min, max, requestInfo, storeName} = this.props
+    switch(type){
       case "number":
         return (
           <input
           type="number"
-          min={this.props.min}
-          max={this.props.max}
+          min={min}
+          max={max}
+          onChange = {this.handleNumberInput}
+          value = {requestInfo[storeName]}
         />);
       case "select":
         return (
-          <select>
+          <select
+            value = {requestInfo[storeName]}
+            onChange = {this.handleSelectInput}
+          >
             {this.props.options.map( option => {
               return (<option key={option.value} value={option.value}>{option.description}</option>)
             } )}
@@ -36,9 +61,14 @@ class InputComponent extends React.Component{
   }
 }
 
-export default InputComponent
+const mapStateToProps = state => {
+  const {panelRequestInfo} = state;
+  return {requestInfo: state.requestInfo}
+}
+
+const mapDispatchToProps ={
+  changePanelValue
+}
 
 
-
-
-// title, type, required, preset, handler })
+export default connect(mapStateToProps, mapDispatchToProps)(InputComponent)

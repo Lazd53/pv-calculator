@@ -10,7 +10,7 @@ class MountingType extends React.Component{
       {value: 1, description: "Fixed - Roof Mounted"},
       {value: 2, description: "1-Axis"},
       {value: 3, description: "1-Axis Backtracking"},
-      {value: 3, description: "2-Axis"}
+      {value: 4, description: "2-Axis"}
     ]
     return (
       <div className="request-section">
@@ -18,9 +18,9 @@ class MountingType extends React.Component{
         <form className="request-section-form">
           <InputComponent
             label="Mounting Type:"
+            storeName="mountingType"
             type="select"
             options={mountingType}
-            required={true}
           />
         </form>
       </div>

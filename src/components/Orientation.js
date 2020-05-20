@@ -12,6 +12,7 @@ class Orientation extends React.Component{
         <form className="request-section-form">
           <InputComponent
             label="Azimuth:"
+            storeName="azimuth"
             type="number"
             required={true}
             min={0}
@@ -19,6 +20,7 @@ class Orientation extends React.Component{
           />
           <InputComponent
             type="number"
+            storeName="tilt"
             label="Tilt:"
             required={true}
             min={0}

@@ -5,9 +5,10 @@ export function resetRequestValues(){
   return { type: RESET_PANEL_REQUEST_VALUES}
 }
 
-export function changePanelValue(changedObject){
+export function changePanelValue(key, value){
   return {
     type: CHANGE_PANEL_VALUE,
-    changedObject
+    key,
+    value
   }
 }
