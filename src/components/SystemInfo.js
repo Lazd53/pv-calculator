@@ -3,13 +3,14 @@ import RequestsSectionHeader from './RequestsSectionHeader';
 import InputComponent from './InputComponent';
 
 class SystemInfo extends React.Component{
+
   render(){
     const panelType = [
       {value: 0, description: "Standard"},
       {value: 1, description: "Premium"},
       {value: 2, description: "Thin Film"}]
     return (
-      <div>
+      <div className="request-section">
         <RequestsSectionHeader title="System Information"/>
         <InputComponent
           label="System Capacity:"
