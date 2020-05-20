@@ -2,7 +2,7 @@ import React from 'react';
 import RequestsSectionHeader from './RequestsSectionHeader';
 import InputComponent from './InputComponent';
 
-class Location extends React.Component{
+class SolarLocation extends React.Component{
 
   render(){
 
@@ -32,4 +32,4 @@ class Location extends React.Component{
   }
 }
 
-export default Location;
+export default SolarLocation;
