@@ -1,10 +1,14 @@
 import React from 'react';
 
+import SystemInfo from './SystemInfo'
+
 class RequestScreen extends React.Component{
   render(){
     return(
       <div>
-        RequestScreen
+      <SystemInfo/>
+
+
       </div>
     )
   }
