@@ -25,12 +25,11 @@ class InputComponent extends React.Component{
   }
 
   render(){
-    const { label, required } = this.props;
+    const { label } = this.props;
     return(
       <div>
         <label> {label} <br/>
           {this.createInputByType()}
-          {required && <p> Required </p>}
         </label>
       </div>
     )
