@@ -27,7 +27,7 @@ class InputComponent extends React.Component{
   render(){
     const { label } = this.props;
     return(
-      <div>
+      <div className="input-component">
         <label> {label} <br/>
           {this.createInputByType()}
         </label>

@@ -9,16 +9,18 @@ class Orientation extends React.Component{
     return (
       <div className="request-section">
         <RequestsSectionHeader title="Orientation"/>
-        <InputComponent
-          label="Azimuth:"
-          type="number"
-          required={true}
-        />
-        <InputComponent
-          type="number"
-          label="Tilt:"
-          required={true}
-        />
+        <form className="request-section-form">
+          <InputComponent
+            label="Azimuth:"
+            type="number"
+            required={true}
+          />
+          <InputComponent
+            type="number"
+            label="Tilt:"
+            required={true}
+          />
+        </form>
       </div>
     )
   }

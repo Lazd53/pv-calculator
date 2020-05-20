@@ -15,12 +15,14 @@ class MountingType extends React.Component{
     return (
       <div className="request-section">
         <RequestsSectionHeader title="MountingType"/>
-        <InputComponent
-          label="Mounting Type:"
-          type="select"
-          options={mountingType}
-          required={true}
-        />
+        <form className="request-section-form">
+          <InputComponent
+            label="Mounting Type:"
+            type="select"
+            options={mountingType}
+            required={true}
+          />
+        </form>
       </div>
     )
   }

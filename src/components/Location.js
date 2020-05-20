@@ -8,17 +8,19 @@ class Location extends React.Component{
 
     return (
       <div className="request-section">
-        <RequestsSectionHeader title="Orientation"/>
-        <InputComponent
-          label="Latitude:"
-          type="number"
-          required={true}
-        />
-        <InputComponent
-          type="number"
-          label="Longitude:"
-          required={true}
-        />
+        <RequestsSectionHeader title="Location"/>
+        <form className="request-section-form">
+          <InputComponent
+            label="Latitude:"
+            type="number"
+            required={true}
+          />
+          <InputComponent
+            type="number"
+            label="Longitude:"
+            required={true}
+          />
+        </form>
       </div>
     )
   }

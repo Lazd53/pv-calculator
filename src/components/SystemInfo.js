@@ -12,22 +12,21 @@ class SystemInfo extends React.Component{
     return (
       <div className="request-section">
         <RequestsSectionHeader title="System Information"/>
-        <InputComponent
-          label="System Capacity:"
-          type="number"
-          required={true}
-        />
-        <InputComponent
-          label="Panel Type:"
-          type="select"
-          options={panelType}
-          required={true}
-        />
-        <InputComponent
-          type="number"
-          label="System Losses:"
-          required={true}
-        />
+        <form className="request-section-form">
+          <InputComponent
+            label="System Capacity:"
+            type="number"
+          />
+          <InputComponent
+            label="Panel Type:"
+            type="select"
+            options={panelType}
+          />
+          <InputComponent
+            type="number"
+            label="System Losses:"
+          />
+        </form>
       </div>
     )
   }
