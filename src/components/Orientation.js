@@ -14,11 +14,15 @@ class Orientation extends React.Component{
             label="Azimuth:"
             type="number"
             required={true}
+            min={0}
+            max={359}
           />
           <InputComponent
             type="number"
             label="Tilt:"
             required={true}
+            min={0}
+            max={90}
           />
         </form>
       </div>

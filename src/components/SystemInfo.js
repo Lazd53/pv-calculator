@@ -16,6 +16,8 @@ class SystemInfo extends React.Component{
           <InputComponent
             label="System Capacity:"
             type="number"
+            min={0.05}
+            max={500000}
           />
           <InputComponent
             label="Panel Type:"
@@ -25,6 +27,8 @@ class SystemInfo extends React.Component{
           <InputComponent
             type="number"
             label="System Losses:"
+            min={-5}
+            max={99}
           />
         </form>
       </div>
