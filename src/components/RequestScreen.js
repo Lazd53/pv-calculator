@@ -6,14 +6,15 @@ import MountingType from './MountingType'
 import Orientation from './Orientation'
 import SolarLocation from './SolarLocation'
 
-import {buildRequest} from '../utils/helpers'
+import { buildRequest } from '../utils/helpers'
+import { handleGetResults } from '../redux/actions/resultsActions'
 
 
 class RequestScreen extends React.Component{
 
   handleSendRequest=()=>{
-    const request = buildRequest(this.props.requestInfo)
-    console.log(request)
+    const request = buildRequest(this.props.panelRequestInfo)
+    this.props.handleGetResults(request)
   }
 
   render(){
@@ -31,8 +32,12 @@ class RequestScreen extends React.Component{
 
 const mapStateToProps = (state)=> {
   return {
-    requestInfo: state.requestInfo
+    panelRequestInfo: state.panelRequestInfo
   }
 }
 
-export default connect(mapStateToProps)(RequestScreen)
+const mapDispatchToProps = {
+  handleGetResults
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RequestScreen)

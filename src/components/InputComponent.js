@@ -22,7 +22,7 @@ class InputComponent extends React.Component{
   }
 
   createInputByType = () => {
-    const {type, min, max, requestInfo, storeName} = this.props
+    const {type, min, max, panelRequestInfo, storeName} = this.props
     switch(type){
       case "number":
         return (
@@ -31,12 +31,12 @@ class InputComponent extends React.Component{
           min={min}
           max={max}
           onChange = {this.handleNumberInput}
-          value = {requestInfo[storeName]}
+          value = {panelRequestInfo[storeName]}
         />);
       case "select":
         return (
           <select
-            value = {requestInfo[storeName]}
+            value = {panelRequestInfo[storeName]}
             onChange = {this.handleSelectInput}
           >
             {this.props.options.map( option => {
@@ -63,8 +63,7 @@ class InputComponent extends React.Component{
 }
 
 const mapStateToProps = state => {
-  const {panelRequestInfo} = state;
-  return {requestInfo: state.requestInfo}
+  return {panelRequestInfo: state.panelRequestInfo}
 }
 
 const mapDispatchToProps ={
