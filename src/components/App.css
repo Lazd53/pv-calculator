@@ -3,10 +3,35 @@
   width: 600px;
   border: 2px solid lightgrey;
   border-radius: 10px;
+  position: relative;
 }
 
 h1 {
   color: #1261A0;
+}
+
+.flip-pages{
+  box-sizing: border-box;
+  display: flex;
+  height: 40px;
+}
+
+.flip-page-button{
+  background-color: #ddeefb;
+  margin-right: 10px;
+  border: 2px solid #1261A0;
+  border-bottom: 0;
+  border-radius: 15px 15px 0 0;
+  width: 150px;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.flip-page-button.selected{
+  font-weight: bolder;
+  color: white;
+  background-color: #1261A0;
+  font-size: 18px;
 }
 
 .request-section{
@@ -57,4 +82,16 @@ h1 {
 .input-component input, .input-component select{
   border: 2px solid darkgrey;
   border-radius: 10px;
+}
+
+.results-parameters{
+  text-align: left;
+  font-size: 18px;
+}
+.results-parameters-text{
+  margin: 5px 0;
+}
+
+.indent-p{
+  margin-left: 30px;
 }
