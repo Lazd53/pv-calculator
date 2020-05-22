@@ -16,7 +16,7 @@ h1 {
   height: 40px;
 }
 
-.flip-page-button{
+.flip-page-link{
   background-color: #ddeefb;
   margin-right: 10px;
   border: 2px solid #1261A0;
@@ -25,9 +25,14 @@ h1 {
   width: 150px;
   font-size: 16px;
   font-weight: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: black;
 }
 
-.flip-page-button.selected{
+.flip-page-link.selected{
   font-weight: bolder;
   color: white;
   background-color: #1261A0;
