@@ -22,3 +22,10 @@ export const  handleGetResults = (request) => {
     )
     }
   }
+
+export const setCurrentResult(id){
+  return {
+    type: SET_CURRENT_RESULT,
+    id
+  }
+}

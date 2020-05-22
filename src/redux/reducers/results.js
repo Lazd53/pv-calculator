@@ -25,6 +25,8 @@ function results(state=initialState, action){
       }
       deleteState.storedResults = [state.filter(item => item.id!== action.deleteID)]
       return deleteState;
+    case SET_CURRENT_RESULT:
+      return {storedResults: [...state.storedResults], currentResult: action.id}
     default:
       return state;
   }
