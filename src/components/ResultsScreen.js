@@ -1,23 +1,28 @@
 import React from 'react';
-import ResultsParameters from './ResultsParameters';
+import {connect} from 'react-redux';
+
+import ResultsSystemInfo from './ResultsSystemInfo';
+
 
 class ResultsScreen extends React.Component{
   render(){
     const {paramObj} = this.props;
     return(
       <section>
-        {paramObj && <ResultsParameters parameters={paramObj}/>}
+        <ResultsSystemInfo/>
       </section>
     )
   }
 }
 
 const mapStateToProps = (store) =>{
+  const  {results} = store
   return{
-    paramObj: store.currentResult
-      ? store.storedResults[store.currentResult]
-      : false
+    paramObj: results.currentResult !== false
+      ? results.storedResults[results.currentResult]
+      : false,
+    store
   }
 }
 
-export default ResultsScreen;
+export default connect(mapStateToProps)(ResultsScreen);
