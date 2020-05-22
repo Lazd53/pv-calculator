@@ -1,5 +1,5 @@
 import React from 'react';
-import RequestsSectionHeader from './RequestsSectionHeader';
+import SectionHeader from './SectionHeader';
 import InputComponent from './InputComponent';
 
 class SolarLocation extends React.Component{
@@ -8,7 +8,7 @@ class SolarLocation extends React.Component{
 
     return (
       <div className="request-section">
-        <RequestsSectionHeader title="Location"/>
+        <SectionHeader title="Location"/>
         <form className="request-section-form">
           <InputComponent
             label="Latitude:"

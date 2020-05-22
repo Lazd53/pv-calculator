@@ -1,5 +1,5 @@
 import React from 'react';
-import RequestsSectionHeader from './RequestsSectionHeader';
+import SectionHeader from './SectionHeader';
 import InputComponent from './InputComponent';
 
 class MountingType extends React.Component{
@@ -14,7 +14,7 @@ class MountingType extends React.Component{
     ]
     return (
       <div className="request-section">
-        <RequestsSectionHeader title="MountingType"/>
+        <SectionHeader title="MountingType"/>
         <form className="request-section-form">
           <InputComponent
             label="Mounting Type:"

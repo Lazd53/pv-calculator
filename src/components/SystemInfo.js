@@ -1,5 +1,5 @@
 import React from 'react';
-import RequestsSectionHeader from './RequestsSectionHeader';
+import SectionHeader from './SectionHeader';
 import InputComponent from './InputComponent';
 
 class SystemInfo extends React.Component{
@@ -11,7 +11,7 @@ class SystemInfo extends React.Component{
       {value: 2, description: "Thin Film"}]
     return (
       <div className="request-section">
-        <RequestsSectionHeader title="System Information"/>
+        <SectionHeader title="System Information"/>
         <form className="request-section-form">
           <InputComponent
             label="System Capacity:"
