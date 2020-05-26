@@ -17,19 +17,19 @@ h1 {
 }
 
 .flip-page-link{
-  background-color: #ddeefb;
+  background-color: #e7eff5;
   margin-right: 10px;
   border: 2px solid #1261A0;
   border-bottom: 0;
   border-radius: 15px 15px 0 0;
   width: 150px;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: normal;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  color: black;
+  color: #1261A0;
 }
 
 .flip-page-link.selected{
@@ -99,4 +99,13 @@ h1 {
 
 .indent-p{
   margin-left: 30px;
+}
+
+.result-change-btn{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid;
+  font-size: 24px;
+  margin-right: 20px;
 }
