@@ -23,7 +23,7 @@ export const  handleGetResults = (request) => {
     }
   }
 
-export const setCurrentResult(id){
+export function setCurrentResult(id){
   return {
     type: SET_CURRENT_RESULT,
     id
