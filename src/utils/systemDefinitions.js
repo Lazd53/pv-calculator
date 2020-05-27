@@ -17,8 +17,6 @@ export const accessMountingType = (num) => {
 }
 
 export const accessPanelType = (num) => {
-  console.log(num);
   const filter = panelType.find( x => x.value == num)
-  console.log(num, filter)
   return filter.description;
 }
