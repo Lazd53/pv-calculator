@@ -1,14 +1,12 @@
 import React from 'react';
 import SectionHeader from './SectionHeader';
 import InputComponent from './InputComponent';
+import {panelType} from '../utils/systemDefinitions';
 
 class SystemInfo extends React.Component{
 
   render(){
-    const panelType = [
-      {value: 0, description: "Standard"},
-      {value: 1, description: "Premium"},
-      {value: 2, description: "Thin Film"}]
+
     return (
       <div className="request-section">
         <SectionHeader title="System Information"/>
