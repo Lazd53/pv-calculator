@@ -1,9 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './App.css';
 import RequestScreen from './RequestScreen';
 import ResultsScreen from './ResultsScreen';
 import {
   BrowserRouter as Router,
+  Redirect,
   Switch,
   Route,
   NavLink
@@ -13,6 +15,7 @@ import {
 class App extends React.Component {
 
   render(){
+    const {resultsExist} = this.props;
     return (
       <Router>
         <div className="App">
@@ -29,7 +32,7 @@ class App extends React.Component {
           </nav>
           <Switch>
             <Route path="/results">
-              <ResultsScreen/>
+              { resultsExist ? <ResultsScreen/> : <Redirect to="/system"/>}
             </Route>
             <Route path="/system">
               <RequestScreen/>
@@ -46,4 +49,8 @@ class App extends React.Component {
 
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return { resultsExist: state.results.storedResults.length !== 0 }
+}
+
+export default connect(mapStateToProps)(App);
