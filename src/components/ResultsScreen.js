@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import ResultsSystemInfo from './ResultsSystemInfo';
+import DesignedSystemResults from './DesignedSystemResults';
 
 
 class ResultsScreen extends React.Component{
@@ -9,6 +10,7 @@ class ResultsScreen extends React.Component{
     const {paramObj} = this.props;
     return(
       <section>
+        <DesignedSystemResults/>
         <ResultsSystemInfo/>
       </section>
     )
