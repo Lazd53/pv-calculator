@@ -1,13 +1,14 @@
 import React from 'react';
+import {accessMountingType, accessPanelType} from '../utils/systemDefinitions';
 
 function ResultsParameters({systemInfo}){
   return(
     <div className="results-parameters">
       <h3>Your System:</h3>
       <p className="results-parameters-text">System Capacity: {systemInfo.system_capacity}kWh</p>
-      <p className="results-parameters-text">Panel Type: {systemInfo.module_type}</p>
+      <p className="results-parameters-text">Panel Type: {accessPanelType(systemInfo.module_type)}</p>
       <p className="results-parameters-text">System Losses: {systemInfo.losses}%</p>
-      <p className="results-parameters-text">Mounting Type: {systemInfo.array_type}</p>
+      <p className="results-parameters-text">Mounting Type: <br/><span>{accessMountingType(systemInfo.array_type)}</span></p>
       <p className="results-parameters-text">Orientation:</p>
       <p className="results-parameters-text indent-p">Azimuth: {systemInfo.azimuth} deg</p>
       <p className="results-parameters-text indent-p">Tilt: {systemInfo.tilt} deg</p>

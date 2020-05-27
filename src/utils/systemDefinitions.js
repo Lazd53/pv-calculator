@@ -10,3 +10,15 @@ export const panelType = [
   {value: 0, description: "Standard"},
   {value: 1, description: "Premium"},
   {value: 2, description: "Thin Film"}]
+
+export const accessMountingType = (num) => {
+  const filter = mountingType.find( x => x.value == num)
+  return filter.description;
+}
+
+export const accessPanelType = (num) => {
+  console.log(num);
+  const filter = panelType.find( x => x.value == num)
+  console.log(num, filter)
+  return filter.description;
+}
