@@ -12,7 +12,7 @@ class ResultsSystemInfo extends React.Component{
 
 
   render(){
-    const {storedResults} = this.props;
+    const {storedResults, currentResultItem} = this.props;
     return(
       <div>
         <SectionHeader title="System Information"/>
@@ -21,7 +21,7 @@ class ResultsSystemInfo extends React.Component{
             <ResultChangeButton key={result.id} id={result.id} color={resultsColors[i]} />
           )}
         </div>
-        <ResultsParameters/>
+        <ResultsParameters systemInfo={currentResultItem.inputs}/>
       </div>
     )
   }
