@@ -1,5 +1,6 @@
 import React from 'react';
 import {accessMountingType, accessPanelType} from '../utils/systemDefinitions';
+import {latitude, longitude} from '../utils/helpers';
 
 function ResultsParameters({systemInfo}){
   return(
@@ -10,11 +11,11 @@ function ResultsParameters({systemInfo}){
       <p className="results-parameters-text">System Losses: {systemInfo.losses}%</p>
       <p className="results-parameters-text">Mounting Type: <br/><span>{accessMountingType(systemInfo.array_type)}</span></p>
       <p className="results-parameters-text">Orientation:</p>
-      <p className="results-parameters-text indent-p">Azimuth: {systemInfo.azimuth} deg</p>
-      <p className="results-parameters-text indent-p">Tilt: {systemInfo.tilt} deg</p>
+      <p className="results-parameters-text indent-p">Azimuth: {systemInfo.azimuth}°</p>
+      <p className="results-parameters-text indent-p">Tilt: {systemInfo.tilt}°</p>
       <p className="results-parameters-text">Location: San Francisco</p>
-      <p className="results-parameters-text indent-p">Latitude: {systemInfo.lat} </p>
-      <p className="results-parameters-text indent-p">Longitude: {systemInfo.lon} </p>
+      <p className="results-parameters-text indent-p">Latitude: {latitude(systemInfo.lat)} </p>
+      <p className="results-parameters-text indent-p">Longitude: {longitude(systemInfo.lon)} </p>
     </div>
   )
 }
