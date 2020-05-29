@@ -109,3 +109,10 @@ h1 {
   font-size: 24px;
   margin-right: 20px;
 }
+
+.d3-container{
+  border: 1px solid black;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -20,3 +20,18 @@ export const accessPanelType = (num) => {
   const filter = panelType.find( x => x.value == num)
   return filter.description;
 }
+
+export const months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "June",
+  "July",
+  "Aug",
+  "Sept",
+  "Oct",
+  "Nov",
+  "Dec"
+]

@@ -11,6 +11,12 @@ class ResultsScreen extends React.Component{
     return(
       <section>
         <DesignedSystemResults/>
+      </section>
+    )
+
+    return(
+      <section>
+        <DesignedSystemResults/>
         <ResultsSystemInfo/>
       </section>
     )
