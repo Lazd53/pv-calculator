@@ -2,7 +2,7 @@ import {months} from './systemDefinitions'
 import {resultsColors} from './colors'
 import * as d3 from 'd3';
 
-export const chartByMonths = (ref, data, dataType, dimensions) => {
+export const chartByMonths = (svgRef, data, dataType, dimensions) => {
   console.log(data)
   const margin = {top: 10, right: 30, bottom: 30, left: 60}
   const height = dimensions.height - margin.top - margin.right;
@@ -10,8 +10,7 @@ export const chartByMonths = (ref, data, dataType, dimensions) => {
   const dataMin = d3.min(data.map( result => d3.min(result.resultData)))
   const dataMax = d3.max(data.map( result => d3.max(result.resultData)))
   // create SVG
-  const svg = d3.select(ref)
-                .append("svg")
+  const svg = d3.select(svgRef)
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.right)
                 .append("g")

@@ -9,12 +9,12 @@ import {chartByMonths} from '../utils/charting'
 class DesignedSystemResults extends React.Component{
   constructor(props){
     super(props);
-    this.refContainer = React.createRef();
+    this.svgRef = React.createRef();
   }
   componentDidMount(){
     this.drawChart("ac_monthly");
   }
-  componentDidUpdage(){
+  componentDidUpdate(){
     this.drawChart("ac_monthly");
   }
 
@@ -27,9 +27,9 @@ class DesignedSystemResults extends React.Component{
       }
     ))
     const dimensions = {height: 500, width: 500}
-    const svgContainer = this.refContainer.current;
+    const svgRef = this.svgRef.current;
 
-    chartByMonths( svgContainer, cleanData, dataType, dimensions)
+    chartByMonths( svgRef, cleanData, dataType, dimensions)
   }
 
   render(){
@@ -37,6 +37,7 @@ class DesignedSystemResults extends React.Component{
       <div>
         <SectionHeader title="Results" />
         <div ref={this.refContainer} className="d3-container">
+          <svg  ref={this.svgRef}></svg>
         </div>
       </div>
     )

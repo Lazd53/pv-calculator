@@ -8,11 +8,6 @@ import DesignedSystemResults from './DesignedSystemResults';
 class ResultsScreen extends React.Component{
   render(){
     const {paramObj} = this.props;
-    return(
-      <section>
-        <DesignedSystemResults/>
-      </section>
-    )
 
     return(
       <section>
