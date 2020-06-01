@@ -32,7 +32,7 @@ class DesignedSystemResults extends React.Component{
     const dimensions = {height: 500, width: 500}
     const svgRef = this.svgRef.current;
 
-    chartByMonths( svgRef, cleanData, dataFormat[dataType], dimensions, "kWh")
+    chartByMonths( svgRef, cleanData, dataFormat[dataType], dimensions)
   }
 
   render(){
