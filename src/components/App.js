@@ -50,7 +50,7 @@ class App extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { resultsExist: true } // state.results.storedResults.length !== 0 }
+  return { resultsExist: state.results.storedResults.length !== 0 }
 }
 
 export default connect(mapStateToProps)(App);
