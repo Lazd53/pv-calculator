@@ -17,6 +17,7 @@ class SolarLocation extends React.Component{
             required={true}
             min={-90}
             max={90}
+            suffix="°N"
           />
           <InputComponent
             label="Longitude:"
@@ -25,6 +26,7 @@ class SolarLocation extends React.Component{
             required={true}
             min={-180}
             max={180}
+            suffix="°W"
           />
         </form>
       </div>

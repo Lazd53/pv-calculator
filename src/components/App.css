@@ -87,6 +87,7 @@ h1 {
 .input-component input, .input-component select{
   border: 2px solid darkgrey;
   border-radius: 10px;
+  padding-left: 15px;
 }
 
 .results-parameters{
@@ -124,4 +125,15 @@ h1 {
 
 circle:hover{
   r: 7px;
+}
+
+.input-suffix-container{
+  position: relative;
+}
+
+.input-suffix-container::after{
+  position: absolute;
+  content: attr(data-content);
+  right: 20px;
+  top: 1px;
 }

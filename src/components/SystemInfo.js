@@ -17,6 +17,7 @@ class SystemInfo extends React.Component{
             type="number"
             min={0.05}
             max={500000}
+            suffix="kWh"
           />
           <InputComponent
             label="Panel Type:"
@@ -30,6 +31,7 @@ class SystemInfo extends React.Component{
             storeName="losses"
             min={-5}
             max={99}
+            suffix="%"
           />
         </form>
       </div>

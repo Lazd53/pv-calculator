@@ -17,6 +17,7 @@ class Orientation extends React.Component{
             required={true}
             min={0}
             max={359}
+            suffix="°"
           />
           <InputComponent
             type="number"
@@ -25,6 +26,7 @@ class Orientation extends React.Component{
             required={true}
             min={0}
             max={90}
+            suffix="°"
           />
         </form>
       </div>
