@@ -2,13 +2,16 @@ import {months} from './systemDefinitions'
 import {resultsColors} from './colors'
 import * as d3 from 'd3';
 
-export const chartByMonths = (svgRef, data, dataType, dimensions) => {
-  console.log(data)
+export const chartByMonths = (svgRef, data, dataFormat, dimensions) => {
   const margin = {top: 10, right: 30, bottom: 30, left: 60}
   const height = dimensions.height - margin.top - margin.right;
   const width = dimensions.width - margin.left - margin.right;
-  const dataMin = d3.min(data.map( result => d3.min(result.resultData)))
-  const dataMax = d3.max(data.map( result => d3.max(result.resultData)))
+  const {desc, units, multiplier} = dataFormat
+  console.log(data)
+  // data.resultData = data.resultData.map( result => result * dataFormat.multiplier)
+  const dataMin = d3.min(data.map( result => d3.min(result.resultData))) * multiplier
+  const dataMax = d3.max(data.map( result => d3.max(result.resultData))) * multiplier
+
   // create SVG
   const svg = d3.select(svgRef)
                 .attr("width", width + margin.left + margin.right)
@@ -43,12 +46,13 @@ export const chartByMonths = (svgRef, data, dataType, dimensions) => {
           .attr("transform", "rotate(-90)")
           .attr("y", 0 - margin.left/2)
           .attr("x", 0 - (height/2))
-          .text("AC Energy (kWh)")
+          .text( `${desc} (${units})`)
 
           data.forEach( (data, i) => {
               const resultClass = `.result${i}`
               const dataColor = data.current ? resultsColors[i][0] : resultsColors[i][1]
-              const { resultData, current } = data
+              let { resultData, current } = data
+              resultData = resultData.map(x => x*multiplier)
             // circles
                   svg.selectAll(`circle ${resultClass}`)
                     .data(resultData)
@@ -59,6 +63,8 @@ export const chartByMonths = (svgRef, data, dataType, dimensions) => {
                     .attr('cy', (d,i) => yScale(d))
                     .attr("r", 5)
                     .style("fill", dataColor)
+                    .append("title")
+                    .text( (d, i) => `${Math.round(d)} ${units}`)
             // paths
                   svg.append("path")
                     .datum(resultData)
@@ -70,14 +76,14 @@ export const chartByMonths = (svgRef, data, dataType, dimensions) => {
                       .y(function(d){return yScale(d)})
                   )
             // labels
-                  svg.selectAll(`.labels ${resultClass}`)
-                    .data(resultData)
-                    .enter()
-                    .append('text')
-                    .attr("class", "labels")
-                    .attr("x", ( d,i ) => xScale(i)  + 5)
-                    .attr("y", ( d,i ) => yScale(d))
-                    .text((d,i)=> Math.round(d))
+                  // svg.selectAll(`.labels ${resultClass}`)
+                  //   .data(resultData)
+                  //   .enter()
+                  //   .append('text')
+                  //   .attr("class", "labels")
+                  //   .attr("x", ( d,i ) => xScale(i)  + 5)
+                  //   .attr("y", ( d,i ) => yScale(d))
+                  //   .text((d,i)=> Math.round(d))
           })
 
 

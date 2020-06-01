@@ -12,14 +12,17 @@ class DesignedSystemResults extends React.Component{
     this.svgRef = React.createRef();
   }
   componentDidMount(){
-    this.drawChart("ac_monthly");
+    this.drawChart("poa_monthly");
   }
   componentDidUpdate(){
-    this.drawChart("ac_monthly");
+    this.drawChart("poa_monthly");
   }
 
   drawChart = (dataType) => {
-
+    const dataFormat = {
+      ac_monthly: { desc: "AC Energy", units: "kWh", multiplier: 1},
+      poa_monthly: { desc: "Solar Radiation", units: "kWh/ft²", multiplier: 0.093}
+    }
     const {allResults} = this.props
     const cleanData = this.props.allResults.map( x => (
       { current: x.current,
@@ -29,7 +32,7 @@ class DesignedSystemResults extends React.Component{
     const dimensions = {height: 500, width: 500}
     const svgRef = this.svgRef.current;
 
-    chartByMonths( svgRef, cleanData, dataType, dimensions)
+    chartByMonths( svgRef, cleanData, dataFormat[dataType], dimensions, "kWh")
   }
 
   render(){
