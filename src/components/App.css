@@ -110,9 +110,18 @@ h1 {
   margin-right: 20px;
 }
 
+.result-change-btn:focus{
+  outline: none;
+  transform: scale(1.15)
+}
+
 .d3-container{
   border: 1px solid black;
   width: 85%;
   margin-left: auto;
   margin-right: auto;
+}
+
+circle:hover{
+  r: 7px;
 }
