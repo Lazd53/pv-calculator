@@ -137,3 +137,8 @@ circle:hover{
   right: 20px;
   top: 1px;
 }
+
+.map{
+  display: flex;
+  justify-content: center;
+}

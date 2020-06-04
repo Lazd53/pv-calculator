@@ -1,59 +1,64 @@
 import React from 'react';
 import {Map, TileLayer, Marker, Popup} from 'react-leaflet';
 import { connect } from 'react-redux'
-
+import { changePanelValue } from '../redux/actions/requestActions';
 import SectionHeader from './SectionHeader';
 import InputComponent from './InputComponent';
+import {cities} from '../utils/locations'
 
 
 
 class SolarLocation extends React.Component{
-  state = {
-    lat: 37.7749,
-    lng: -122.4194,
-    zoom: 4
+  constructor(props){
+    super(props)
+    this.state = {
+      chosenCity: "sanFrancisco",
+    }
   }
+
+  handleSelectInput = (event) => {
+    this.setState({chosenCity: event.target.value })
+    // fire off change to Redux for   this.state.chosenCity
+  }
+
+  handleClickMarker = (id) => {
+    this.setState({chosenCity: id})
+    console.log(this.state)
+  }
+
+
   render(){
-    console.log(this.props)
-    // const
-    const bounds = [ [48.885, -125], [24.853, -78]  ]
+    // const currentCityInfo = this.state.cities.filter( city => city.id === this.state.chosenCity)[0]
+    // const lat = currentCityInfo.lat
+    // const lon = currentCityInfo.lon
+    const bounds = [ [48.885, -125], [24.853, -72]  ]
     return (
       <div className="request-section">
         <SectionHeader title="Location"/>
         <form className="request-section-form">
-          <InputComponent
-            label="Latitude:"
-            type="number"
-            storeName="lat"
-            required={true}
-            min={-90}
-            max={90}
-            suffix="°N"
-          />
-          <InputComponent
-            label="Longitude:"
-            type="number"
-            storeName="lon"
-            required={true}
-            min={-180}
-            max={180}
-            suffix="°W"
-          />
+          <select value={this.state.chosenCity} onChange={this.handleSelectInput}>
+            { cities.map( city => <option key={city.id} value={city.id}>{city.locName}</option>) }
+          </select>
+          <p> Latitude: </p>
+          <p> Longitude: </p>
+
         </form>
         <div className="map">
           <Map
             bounds={ bounds }
             zoom={this.state.zoom}
             style={{width: '100%', height: "400px"}}
-            onClick={(e) => console.log(e)}
           >
             <TileLayer
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
             />
-          <Marker position={[this.props.lat, this.props.lon]}>
-            <Popup>A pretty CSS3 popup</Popup>
-          </Marker>
+          { cities.map( city  => (
+            <Marker key={city.id} position={[city.lat, city.lon]}>
+              <Popup onOpen={()=>{this.handleClickMarker(city.id)}}>{city.locName}</Popup>
+            </Marker>
+          )) }
+
 
           </Map>
         </div>
@@ -69,4 +74,27 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(SolarLocation);
+const mapDispatchToProps = {
+  changePanelValue
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SolarLocation);
+
+//           <InputComponent
+          //   label="Latitude:"
+          //   type="number"
+          //   storeName="lat"
+          //   required={true}
+          //   min={-90}
+          //   max={90}
+          //   suffix="°N"
+          // />
+          // <InputComponent
+          //   label="Longitude:"
+          //   type="number"
+          //   storeName="lon"
+          //   required={true}
+          //   min={-180}
+          //   max={180}
+          //   suffix="°W"
+          // />
