@@ -1,5 +1,5 @@
 import React from 'react';
-import {Map, TileLayer, Marker, Popup} from 'react-leaflet';
+import {Map, TileLayer, Marker, Popup, Tooltip} from 'react-leaflet';
 import { connect } from 'react-redux'
 import { changeCoordinates } from '../redux/actions/requestActions';
 import SectionHeader from './SectionHeader';
@@ -27,35 +27,40 @@ class SolarLocation extends React.Component{
     })
   }
 
+  round = (num, places) => {
+    return Number.parseFloat(num).toFixed(places)
+  }
 
   render(){
-    // const currentCityInfo = this.state.cities.filter( city => city.id === this.state.chosenCity)[0]
-    // const lat = currentCityInfo.lat
-    // const lon = currentCityInfo.lon
     const bounds = [ [48.885, -125], [24.853, -72]  ]
+    const {props, round, handleClickMarker, handleSelectInput} = this
     return (
       <div className="request-section">
         <SectionHeader title="Location"/>
         <form className="request-section-form input-component">
-          <select value={this.props.currentCity} onChange={this.handleSelectInput}>
+          <select
+            value={props.currentCity}
+            onChange={handleSelectInput}
+            className="input-fields"
+            >
             { cities.map( city => <option key={city.id} value={city.id}>{city.locName}</option>) }
           </select>
-          <p> Latitude: {this.props.lat} °N <br/> Longitude: {this.props.lon*-1} °W </p>
+          <p className="location-coords"> Latitude: {Math.round(props.lat, 2)} °N <br/> Longitude: {Math.round(props.lon*-1, 2)} °W </p>
 
         </form>
         <div className="map">
           <Map
             bounds={ bounds }
-            style={{width: '100%', height: "400px"}}
+            style={{width: '90%', height: "400px"}}
           >
             <TileLayer
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
             />
           { cities.map( city  => (
-            <Marker key={city.id} position={[city.lat, city.lon]}>
-              <Popup onOpen={()=>{this.handleClickMarker(city.id)}}>{city.locName}</Popup>
-            </Marker>
+              <Marker onClick={()=>{handleClickMarker(city.id)}} key={city.id} opacity={10} position={[city.lat, city.lon]}>
+                <Tooltip>{city.locName}</Tooltip>
+              </Marker>
           )) }
 
 

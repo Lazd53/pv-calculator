@@ -36,12 +36,14 @@ class InputComponent extends React.Component{
               max={max}
               onChange = {this.handleNumberInput}
               value = {panelRequestInfo[storeName]}
+              className="input-fields"
             />
           </div>
         );
       case "select":
         return (
           <select
+            className="input-fields"
             value = {panelRequestInfo[storeName]}
             onChange = {this.handleSelectInput}
           >

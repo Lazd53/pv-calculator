@@ -58,6 +58,7 @@ h1 {
 .request-section-form{
   display: flex;
   justify-content: space-around;
+  align-items: center;
   margin: 0 15px 40px 15px;
 }
 
@@ -69,7 +70,7 @@ h1 {
   margin: 15px 0;
 }
 
-.input-component input, .input-component select, .input-component option{
+.input-fields, .input-fields option{
   min-width: 140px;
   height: 36px;
   padding: 1px;
@@ -78,13 +79,12 @@ h1 {
   text-align-last: center;
 }
 
-.input-component input,:focus .input-component select:focus,
-.input-component input:active, .input-component select:focus{
+.input-fields:focus, .input-fields:active {
   outline: none;
   border-color: #1261A0;
 }
 
-.input-component input, .input-component select{
+.input-fields {
   border: 2px solid darkgrey;
   border-radius: 10px;
   padding-left: 15px;
@@ -138,7 +138,14 @@ circle:hover{
   top: 1px;
 }
 
+.location-coords{
+  margin: 0;
+  font-size: 16px;
+}
+
 .map{
   display: flex;
   justify-content: center;
 }
+
+/* .marker-container > img */
