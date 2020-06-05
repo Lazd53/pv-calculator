@@ -13,7 +13,7 @@ function ResultsParameters({systemInfo}){
       <p className="results-parameters-text">Orientation:</p>
       <p className="results-parameters-text indent-p">Azimuth: {systemInfo.azimuth}°</p>
       <p className="results-parameters-text indent-p">Tilt: {systemInfo.tilt}°</p>
-      <p className="results-parameters-text">Location: San Francisco</p>
+      <p className="results-parameters-text">Location: {systemInfo.cityName}</p>
       <p className="results-parameters-text indent-p">Latitude: {latitude(systemInfo.lat)} </p>
       <p className="results-parameters-text indent-p">Longitude: {longitude(systemInfo.lon)} </p>
     </div>

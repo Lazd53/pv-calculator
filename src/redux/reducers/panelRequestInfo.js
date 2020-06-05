@@ -12,7 +12,8 @@ const requestSetupValues = {
   tilt: 30,
   lat: 37.775,
   lon: -122.419,
-  currentCity: "sanFrancisco"
+  cityId: "sanFrancisco",
+  cityName: "San Francisco"
 }
 
 function panelRequestInfo(state=requestSetupValues, action){
@@ -24,7 +25,8 @@ function panelRequestInfo(state=requestSetupValues, action){
       return { ...state, [key]:value };
     case CHANGE_COORD:
       return { ...state,
-        currentCity: action.currentCity,
+        cityId: action.cityId,
+        cityName: action.cityName,
         lat: action.lat,
         lon: action.lon
       }

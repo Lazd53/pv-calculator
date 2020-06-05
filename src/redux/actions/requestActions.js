@@ -15,9 +15,11 @@ export function changePanelValue(key, value){
 }
 
 export function changeCoordinates( coordObj ){
+  let currentCity = coordObj.currentCity
   return {
     type: CHANGE_COORD,
-    currentCity: coordObj.currentCity,
+    cityId: coordObj.cityId,
+    cityName: coordObj.cityName,
     lat: coordObj.lat,
     lon: coordObj.lon
   }

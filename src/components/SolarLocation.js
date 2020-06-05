@@ -23,7 +23,8 @@ class SolarLocation extends React.Component{
     this.props.changeCoordinates( {
       lat:chosenCityProps.lat,
       lon:chosenCityProps.lon,
-      currentCity: newId
+      cityId: newId,
+      cityName: chosenCityProps.locName
     })
   }
 
@@ -39,7 +40,7 @@ class SolarLocation extends React.Component{
         <SectionHeader title="Location"/>
         <form className="request-section-form input-component">
           <select
-            value={props.currentCity}
+            value={props.cityId}
             onChange={handleSelectInput}
             className="input-fields"
             >
@@ -75,7 +76,9 @@ const mapStateToProps = (state) => {
   return {
     lat: state.panelRequestInfo.lat,
     lon: state.panelRequestInfo.lon,
-    currentCity: state.panelRequestInfo.currentCity
+    cityId: state.panelRequestInfo.cityId,
+    cityName: state.panelRequestInfo.cityName
+
   }
 }
 
