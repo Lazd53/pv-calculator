@@ -1,7 +1,7 @@
 import React from 'react';
 import {Map, TileLayer, Marker, Popup} from 'react-leaflet';
 import { connect } from 'react-redux'
-import { changePanelValue } from '../redux/actions/requestActions';
+import { changeCoordinates } from '../redux/actions/requestActions';
 import SectionHeader from './SectionHeader';
 import InputComponent from './InputComponent';
 import {cities} from '../utils/locations'
@@ -9,21 +9,22 @@ import {cities} from '../utils/locations'
 
 
 class SolarLocation extends React.Component{
-  constructor(props){
-    super(props)
-    this.state = {
-      chosenCity: "sanFrancisco",
-    }
-  }
 
   handleSelectInput = (event) => {
-    this.setState({chosenCity: event.target.value })
-    // fire off change to Redux for   this.state.chosenCity
+    this.handleRedux( event.target.value )
   }
 
   handleClickMarker = (id) => {
-    this.setState({chosenCity: id})
-    console.log(this.state)
+    this.handleRedux(id)
+  }
+
+  handleRedux = (newId) => {
+    const chosenCityProps = cities.filter( x => x.id === newId)[0]
+    this.props.changeCoordinates( {
+      lat:chosenCityProps.lat,
+      lon:chosenCityProps.lon,
+      currentCity: newId
+    })
   }
 
 
@@ -35,18 +36,16 @@ class SolarLocation extends React.Component{
     return (
       <div className="request-section">
         <SectionHeader title="Location"/>
-        <form className="request-section-form">
-          <select value={this.state.chosenCity} onChange={this.handleSelectInput}>
+        <form className="request-section-form input-component">
+          <select value={this.props.currentCity} onChange={this.handleSelectInput}>
             { cities.map( city => <option key={city.id} value={city.id}>{city.locName}</option>) }
           </select>
-          <p> Latitude: </p>
-          <p> Longitude: </p>
+          <p> Latitude: {this.props.lat} °N <br/> Longitude: {this.props.lon*-1} °W </p>
 
         </form>
         <div className="map">
           <Map
             bounds={ bounds }
-            zoom={this.state.zoom}
             style={{width: '100%', height: "400px"}}
           >
             <TileLayer
@@ -70,12 +69,13 @@ class SolarLocation extends React.Component{
 const mapStateToProps = (state) => {
   return {
     lat: state.panelRequestInfo.lat,
-    lon: state.panelRequestInfo.lon
+    lon: state.panelRequestInfo.lon,
+    currentCity: state.panelRequestInfo.currentCity
   }
 }
 
 const mapDispatchToProps = {
-  changePanelValue
+  changeCoordinates
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SolarLocation);
