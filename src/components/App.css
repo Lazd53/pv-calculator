@@ -66,8 +66,12 @@ h1 {
   font-size: 20px;
 }
 
-.input-component-title{
-  margin: 15px 0;
+.input-component-label{
+  font-size: 24px;
+  font-weight: normal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .input-fields, .input-fields option{
@@ -127,15 +131,21 @@ h1 {
   r: 7px;
 }
 
-.input-suffix-container{
+.span-suffix{
   position: relative;
 }
-
-.input-suffix-container::after{
+.span-suffix::before{
   position: absolute;
-  content: attr(data-content);
-  right: 20px;
-  top: 1px;
+  left: -55px;
+  font-size: 18px;
+  top: 7px;
+  content: attr(data-suffix);
+}
+.span-suffix::after{
+  position: absolute;
+  left: 10px;
+  font-size: 24px;
+  content: attr(data-afterText);
 }
 
 .location-coords{
@@ -148,4 +158,12 @@ h1 {
   justify-content: center;
 }
 
-/* .marker-container > img */
+.azimuth{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.radialSlider{
+  margin-top: 20px;
+}

@@ -22,14 +22,12 @@ class InputComponent extends React.Component{
   }
 
   createInputByType = () => {
-    const {type, min, max, panelRequestInfo, storeName, suffix} = this.props
-
+    const {type, min, max, panelRequestInfo, storeName, suffix, afterText} = this.props
+    console.log(afterText)
     switch(type){
       case "number":
         return (
-          <div className="input-suffix-container"
-            data-content={suffix}
-          >
+          <div>
             <input
               type="number"
               min={min}
@@ -37,7 +35,7 @@ class InputComponent extends React.Component{
               onChange = {this.handleNumberInput}
               value = {panelRequestInfo[storeName]}
               className="input-fields"
-            />
+            /><span className="span-suffix" data-suffix={suffix} data-afterText={afterText}></span>
           </div>
         );
       case "select":
@@ -58,11 +56,11 @@ class InputComponent extends React.Component{
   }
 
   render(){
-    const { label } = this.props;
+    const { label, afterText } = this.props;
     return(
       <div className="input-component">
-        <label>
-          <h4 className="input-component-title">{label}</h4>
+        <label className="input-component-label">
+          {label}<br/>
           {this.createInputByType()}
         </label>
       </div>
