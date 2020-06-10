@@ -28,3 +28,11 @@ export const longitude = (rawLong) => {
     return `${Math.abs(rawLong)}°W`
   }
 }
+
+export function degToRadians(deg){
+  return deg * Math.PI / 180
+}
+
+export function radToDegrees(rad){
+  return rad * 180 / Math.PI
+}

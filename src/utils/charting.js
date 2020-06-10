@@ -49,7 +49,7 @@ export const chartByMonths = (svgRef, data, dataFormat, dimensions) => {
           .text( `${desc} (${units})`)
 
           data.forEach( (data, i) => {
-              const resultClass = `.result${i}`
+              const resultClass = `.result${i} .resultDot`
               const dataColor = data.current ? resultsColors[i][0] : resultsColors[i][1]
               let { resultData, current } = data
               resultData = resultData.map(x => x*multiplier)

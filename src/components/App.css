@@ -123,7 +123,7 @@ h1 {
   margin-right: auto;
 }
 
-circle:hover{
+.resultDot:hover{
   r: 7px;
 }
 
